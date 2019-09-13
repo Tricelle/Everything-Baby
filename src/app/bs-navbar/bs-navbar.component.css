@@ -1,0 +1,13 @@
+.dropdown-toggle {
+  cursor: pointer;
+}
+
+.dropdown .dropdown-menu.dropdown-custom .dropdown-item.active, .dropdown .dropdown-menu.dropdown-custom .dropdown-item:active, .dropdown .dropdown-menu.dropdown-custom .dropdown-item:hover, .dropleft .dropdown-menu.dropdown-custom .dropdown-item.active, .dropleft .dropdown-menu.dropdown-custom .dropdown-item:active, .dropleft .dropdown-menu.dropdown-custom .dropdown-item:hover, .dropright .dropdown-menu.dropdown-custom .dropdown-item.active, .dropright .dropdown-menu.dropdown-custom .dropdown-item:active, .dropright .dropdown-menu.dropdown-custom .dropdown-item:hover, .dropup .dropdown-menu.dropdown-custom .dropdown-item.active, .dropup .dropdown-menu.dropdown-custom .dropdown-item:active, .dropup .dropdown-menu.dropdown-custom .dropdown-item:hover{
+  background-color: #3f51b5;
+}
+
+* {
+  font-weight: 400
+}
+
+

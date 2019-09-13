@@ -1,0 +1,58 @@
+
+<mdb-card
+  cascade="true"
+  *ngIf="product.title"
+  style="width: 22rem;"
+  class="mr-5"
+>
+  <!--Card image-->
+  <div class="view view-cascade overlay waves-light" mdbWavesEffect>
+    <mdb-card-img
+      *ngIf="product.imageUrl"
+      [src]="product.imageUrl"
+      alt="{{ product.title }}"
+    >
+    </mdb-card-img>
+    <a>
+      <div class="mask rgba-white-slight"></div>
+    </a>
+  </div>
+  <!--/Card image-->
+
+  <mdb-card-body cascade="true" class="text-center">
+    <!--Card content-->
+    <!--Title-->
+    <h5 class="card-title" style="height: 5rem;" >
+      <strong>{{ product.title }}</strong>
+    </h5>
+    <h5 class="indigo-text">
+      <strong>{{ product.price | currency: "USD":true }}</strong>
+    </h5>
+
+    <!-- Card footer -->
+    <div
+      *ngIf="showActions && shoppingCart"
+      class="card-footer
+    text-muted
+    text-center
+    mt-4"
+    >
+      <button style="background-color: #00bcd4"
+        *ngIf="shoppingCart.getQuantity(product) === 0; else updateQuantity"
+        (click)="addToCart()"
+        class="btn btn-info btn-block"
+      >
+        Add to Cart
+      </button>
+      <ng-template #updateQuantity>
+        <product-quantity [product]="product" [shopping-cart]="shoppingCart">
+        </product-quantity>
+      </ng-template>
+    </div>
+  </mdb-card-body>
+  <!--/.Card content-->
+</mdb-card>
+
+
+
+

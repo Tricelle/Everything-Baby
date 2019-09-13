@@ -1,0 +1,51 @@
+<mdb-navbar SideClass="navbar
+    fixed-top
+    navbar-expand-lg
+    navbar-dark
+    scrolling-navbar
+    intro-fixed-nav
+    #00bcd4 cyan" [containerInside]="false">
+  <mdb-navbar-brand><a class="navbar-brand ml-4" routerLink="/">
+      <img src="assets/images/logo4.svg" width="30" height="30" alt="logo" />
+      Everything Baby
+    </a></mdb-navbar-brand>
+
+  <links>
+    <!-- Links -->
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link waves-light" routerLink="/shopping-cart" mdbWavesEffect>
+          <mdb-icon fas icon="shopping-cart"></mdb-icon>
+          <span class="badge badge-warning pill" *ngIf="cart$ | async as cart">
+            {{ cart.totalItemsCount }}
+          </span>
+        </a>
+      </li>
+
+      <ng-template #anonymousUser>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/login">Login</a>
+        </li>
+      </ng-template>
+
+      <!-- Dropdown -->
+
+      <li class="nav-item dropdown mr-4" dropdown *ngIf="appUser; else anonymousUser">
+        <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
+          {{ appUser.name }}
+          <span class="caret"></span>
+        </a>
+
+        <div *dropdownMenu class="dropdown-menu dropdown dropdown-custom" role="menu">
+          <a class="dropdown-item waves-light" mdbWavesEffect routerLink="/my/orders">My Orders</a>
+          <ng-container *ngIf="appUser.isAdmin">
+            <a class="dropdown-item waves-light" routerLink="/admin/orders">Manage Orders</a>
+            <a class="dropdown-item waves-light" routerLink="/admin/products">Manage Products</a>
+          </ng-container>
+          <div class="divider dropdown-divider"></div>
+          <a class="dropdown-item waves-light" mdbWavesEffect (click)="logout()">Log Out</a>
+        </div>
+      </li>
+    </ul>
+  </links>
+</mdb-navbar>

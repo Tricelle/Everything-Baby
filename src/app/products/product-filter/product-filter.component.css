@@ -1,0 +1,13 @@
+.sticky-top {
+  top: 80px;
+  width: 290px;
+}
+
+.list-group-item.active
+{
+  background-color:#3f51b5;
+}
+
+* {
+  font-weight: 400
+}

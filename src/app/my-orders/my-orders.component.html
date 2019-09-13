@@ -1,0 +1,26 @@
+<div class="head ml-5 mr-5">
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <h1>Orders</h1>
+      <table class="table-bordered" mdbTable striped="true">
+        <thead>
+          <tr>
+            <th>Customer</th>
+            <th>Date</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let order of orders$ | async">
+            <td>{{ order.shipping.name }}</td>
+            <td>{{ order.datePlaced | date }}</td>
+            <td>
+              <a href="#">View</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
